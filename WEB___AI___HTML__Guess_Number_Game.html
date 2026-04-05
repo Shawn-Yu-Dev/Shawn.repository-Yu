@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网页版猜数字</title>
+    <style>
+        /* 复用你之前的卡片样式 */
+        body { background: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; font-family: sans-serif; }
+        .card { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; }
+        input { padding: 10px; width: 60px; margin: 10px; border: 1px solid #ccc; border-radius: 5px; }
+        button { padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        #message { margin-top: 15px; color: #666; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>猜数字游戏 🎮</h1>
+    <p>我已经想好了一个 1-100 之间的数字。</p>
+    
+    <input type="number" id="guessInput" placeholder="输入">
+    <button onclick="checkGuess()">提交</button>
+
+    <!-- 这里的文字会动态改变，相当于 C++ 的 cout -->
+    <p id="message">准备好就开始吧！</p>
+</div>
+
+<script>
+    // 这里的逻辑和你 C++ 的逻辑一模一样
+    const targetNumber = Math.floor(Math.random() * 100) + 1;
+    let attempts = 0;
+
+    function checkGuess() {
+        const guess = document.getElementById('guessInput').value;
+        const msg = document.getElementById('message');
+        attempts++;
+
+        if (guess == targetNumber) {
+            msg.innerHTML = `恭喜！🎉 猜对了！次数：${attempts}`;
+            msg.style.color = "green";
+        } else if (guess > targetNumber) {
+            msg.innerText = "太大了！再试一次 👇";
+            msg.style.color = "orange";
+        } else {
+            msg.innerText = "太小了！再试一次 👇";
+            msg.style.color = "blue";
+        }
+    }
+</script>
+
+</body>
+</html>
