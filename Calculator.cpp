@@ -8,7 +8,7 @@ int main() {
     cin >> a;
     if (a==1){
         cout << "1.请勿输入任何字母（否则会崩溃）" << endl;
-        cout << "2.";
+        cout << "2.采用long double,放心使用"<< endl;
     }
     cout << "那么，请按任意数字键开始计算吧!   ";
     int b ;
