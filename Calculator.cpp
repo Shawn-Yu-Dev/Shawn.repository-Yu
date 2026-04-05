@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <limits>
+#include <cmath>
 using namespace std;
 int main() {
     int a;
@@ -44,6 +45,8 @@ int main() {
                 continue;
             }
             cout << d/e ;
+        }else if (f=='^'){
+            cout << pow(d,e);
         }
         cout << endl << endl;
     }
